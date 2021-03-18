@@ -6,6 +6,7 @@ csvpath = os.path.join("Resources", "budget_data.csv")
 #create calculation variables
 
 month_count = 0
+rev = 0
 rev_total = 0
 rev_total_change = 0
 #greatest_increase = ???
@@ -38,7 +39,7 @@ with open(csvpath) as csvfile:
             rev = float(row[1])
 
             rev_total = rev_total + rev
-            
+
     #print analysis results
             
     print(f"Financial Analysis")
