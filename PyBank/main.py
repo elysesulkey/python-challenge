@@ -38,16 +38,16 @@ with open(csvpath) as csvfile:
             rev = float(row[1])
 
             rev_total = rev_total + rev
-                
+            
     #print analysis results
             
-    print("Financial Analysis")
-    print("______________________________________")
-    print("Total Months: " + str(month_count))
-    print("Total: " + str(rev_total))
-    print("Average Change: ")
-    print("Greatest Increase in Profits: ")
-    print("Greatest Decrease in Profits: ")
+    print(f"Financial Analysis")
+    print(f"______________________________________")
+    print(f"Total Months: {month_count} ")
+    print(f"Total: ${rev_total:,.2f}")
+    print(f"Average Change: ")
+    print(f"Greatest Increase in Profits: ")
+    print(f"Greatest Decrease in Profits: ")
 
     #output to terminal
     #output to file
