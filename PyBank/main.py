@@ -8,19 +8,12 @@ csvpath = os.path.join("Resources", "budget_data.csv")
 month_count = 0
 rev = 0
 rev_total = 0
-rev_total_change = 0
+#rev_total_change = 0
 #greatest_increase = ???
 #greatest_decrease = ???
-previous_rev = 0
-month_change = []
-rev_change = []
-
-
-#get data from first row to set start
-# go through each row
-#calculate change in profit/loss (between months?) + find average
-#determine greatest increase
-#determine greatest decrease
+#previous_rev = 0
+#month_change = []
+#rev_change = []
 
 #open csv and store/skip header info
 with open(csvpath) as csvfile:
@@ -39,6 +32,11 @@ with open(csvpath) as csvfile:
             rev = float(row[1])
 
             rev_total = rev_total + rev
+    #get data from first row to set start
+    # go through each row
+    #calculate change in profit/loss (between months?) + find average
+    #determine greatest increase
+    #determine greatest decrease
 
     #print analysis results
             
