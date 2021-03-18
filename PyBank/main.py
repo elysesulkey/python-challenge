@@ -23,20 +23,24 @@ with open(csvpath) as csvfile:
 
     #loop through rows
     for row in csvreader:
-        #increase month count
+
+        #loop through month & increase month count
         if row[0]:
             month_count += 1
 
-        #add to profit/loss sum for total    
+        #loop through profit/loss   
         if row[1]:
-            rev = float(row[1])
 
+            #add to profit/loss sum for total 
+            rev = float(row[1])
             rev_total = rev_total + rev
-    #get data from first row to set start
-    # go through each row
-    #calculate change in profit/loss (between months?) + find average
-    #determine greatest increase
-    #determine greatest decrease
+
+            #calculate change in profit/loss + find average
+                #current month - previous month (between each month)
+                #sum of changes / number of changes (86 months?)
+                
+            #determine greatest increase
+            #determine greatest decrease
 
     #print analysis results
             
