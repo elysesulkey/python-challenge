@@ -35,6 +35,12 @@ with open(csvpath) as csvfile:
             rev = float(row[1])
             rev_total = rev_total + rev
 
+            previous_rev = rev
+
+            current_rev = float(row[1])
+            rev_change_value = current_rev - previous_rev
+            print(f'{rev_change_value}')
+
             #for line in row[1]:
                 #if line[1]:
                     
