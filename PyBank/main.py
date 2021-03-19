@@ -23,6 +23,8 @@ with open(csvpath) as csvfile:
 
     #loop through rows
     for row in csvreader:
+        rev = float(row[1])
+        previous_rev = rev
 
         #loop through month & increase month count
         if row[0]:
@@ -32,19 +34,14 @@ with open(csvpath) as csvfile:
         if row[1]:
 
             #add to profit/loss sum for total 
-            rev = float(row[1])
             rev_total = rev_total + rev
 
-        if row[1]:
-            rev = float(row[1])
-            print(f'this is rev ____ {rev}')
-            previous_rev = rev
-            print(f'this is prev ___ {previous_rev}')
+            print(f'prev ___ {previous_rev}')
             current_rev = float(row[1])
-            print(f' this is current ___{current_rev}')
+            print(f'current ___{current_rev}')
     
-            rev_change_value = (current_rev - previous_rev)
-            print(f'this is change __{rev_change_value}')
+            rev_change_value = current_rev - previous_rev
+            print(f'change __{rev_change_value}')
 
 
             #for line in row[1]:
