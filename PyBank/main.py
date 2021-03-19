@@ -3,28 +3,29 @@ import csv
 
 csvpath = os.path.join("Resources", "budget_data.csv")
 
-#create calculation variables
-
-month_count = 0
-rev = 0
-rev_total = 0
-rev_change_value = 0
-#greatest_increase = ???
-#greatest_decrease = ???
-#previous_rev = 0
-#month_change = []
-#rev_change = []
-
 #open csv and store/skip header info
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
     csv_header = next(csvreader)
 
+    #create calculation variables
+
+    row = next(csvreader)
+    month_count = 0
+    rev = float(row[1])
+    rev_total = 0
+    rev_change = 0
+    previous_rev = rev
+    sum_change = 0
+    #greatest_increase = ???
+    #greatest_decrease = ???
+    #previous_rev = 0
+    #month_change = []
+    #rev_change = []
+
     #loop through rows
     for row in csvreader:
-        rev = float(row[1])
-        previous_rev = rev
 
         #loop through month & increase month count
         if row[0]:
@@ -34,24 +35,21 @@ with open(csvpath) as csvfile:
         if row[1]:
 
             #add to profit/loss sum for total 
+            
+            rev = float(row[1])
+
             rev_total = rev_total + rev
 
-            print(f'prev ___ {previous_rev}')
-            current_rev = float(row[1])
-            print(f'current ___{current_rev}')
+            #calculate change in profit/loss + find average 
     
-            rev_change_value = current_rev - previous_rev
-            print(f'change __{rev_change_value}')
+            rev_change = rev - previous_rev
 
+            sum_change = sum_change + rev_change
 
-            #for line in row[1]:
-                #if line[1]:
-                    
-                    #calculate change in profit/loss + find average
-                    #current_rev = float(line[1])
-                    #previous_rev = float(row[1])
-                    #rev_change_value = current_rev - previous_rev
-                    #print(f"{current_rev}")
+            print(f'sum change{sum_change}')
+
+            avg_change = sum_change/month_count
+
 
                     #current month - previous month (between each month)
                     #sum of changes / number of changes (86 months?)
