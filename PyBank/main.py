@@ -12,7 +12,7 @@ with open(csvpath) as csvfile:
     #create calculation variables
 
     row = next(csvreader)
-    month_count = 0
+    month_count = 1
     rev = float(row[1])
     rev_total = 0
     rev_change = 0
@@ -40,7 +40,7 @@ with open(csvpath) as csvfile:
 
             rev_total = rev_total + rev
 
-            #calculate change in profit/loss + find average 
+            #calculate change in profit/loss 
     
             rev_change = rev - previous_rev
 
@@ -48,12 +48,14 @@ with open(csvpath) as csvfile:
             
             previous_rev = rev
 
+            #determine greatest increase
+            #if.....
+
+            #determine greatest decrease
+            #if ....
+
+    #finish average change calculation 
     avg_change = sum_change/month_count
-
-    print(f'sum {avg_change}')
-
-                    #determine greatest increase
-                    #determine greatest decrease
 
     #print analysis results
             
@@ -61,7 +63,7 @@ with open(csvpath) as csvfile:
     print(f"______________________________________")
     print(f"Total Months: {month_count} ")
     print(f"Total: ${rev_total:,.2f}")
-    print(f"Average Change: ")
+    print(f"Average Change: ${avg_change:,.2f}")
     print(f"Greatest Increase in Profits: ")
     print(f"Greatest Decrease in Profits: ")
 
