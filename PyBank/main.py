@@ -54,20 +54,20 @@ with open(csvpath) as csvfile:
     #finish average change calculation 
     avg_change = sum_change/month_count
 
-    #print analysis results      
-    print(f"Financial Analysis")
-    print(f"______________________________________")
-    print(f"Total Months: {month_count} ")
-    print(f"Total: ${rev_total:,.2f}")
-    print(f"Average Change: ${avg_change:,.2f}")
-    print(f"Greatest Increase in Profits: {increase_month} (${increase_value:,.2f})")
-    print(f"Greatest Decrease in Profits: {decrease_month} (${decrease_value:,.2f})")
+    #print analysis results
+    analysis = (
+        f"Financial Analysis\n"
+        f"______________________________________\n"
+        f"Total Months: {month_count}\n"
+        f"Total: ${rev_total:,.2f}\n"
+        f"Average Change: ${avg_change:,.2f}\n"
+        f"Greatest Increase in Profits: {increase_month} (${increase_value:,.2f})\n"
+        f"Greatest Decrease in Profits: {decrease_month} (${decrease_value:,.2f})\n")
+    print(analysis)
 
     #output to file
     output_path = os.path.join("Analysis","PyBank_analysis.csv")
-    with open(output_path, "w", newline="") as csvfile:
-        csvwriter = csv.writer(csvfile)
-        csvwriter.write((f"Financial Analysis"), (f"______________________________________")
-   ,(f"Total Months: {month_count} "), (f"Total: ${rev_total:,.2f}"), (f"Average Change: ${avg_change:,.2f}")
- , (f"Greatest Increase in Profits: {increase_month} (${increase_value:,.2f})")
-,(f"Greatest Decrease in Profits: {decrease_month} (${decrease_value:,.2f})"))
+    with open(output_path, "w") as csvfile:
+        writer = csv.writer(csvfile)
+
+        writer.writerow(f"analysis")
