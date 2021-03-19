@@ -7,8 +7,7 @@ csvpath = os.path.join("Resources", "budget_data.csv")
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
-
-    row = next(csvreader)
+    csv_header = next(csvreader)
     #create calculation variables
 
     row = next(csvreader)
@@ -47,10 +46,19 @@ with open(csvpath) as csvfile:
             previous_rev = rev
 
             #determine greatest increase
-            if rev_change >= 0:
-                rev_increase = rev_change
+            value = float(row[1])
+          
+            for value in range(int(row[1])):
+
+                if int(row[1]) >= value:
+                    greatest_increase = int(row[1])
+                    print(f'greatest increase {greatest_increase}')
+
+                #if rev_increase_1 >= rev_change:
+                    #rev_increase = rev_increase_1
+
                 increase_month = row[0]
-                print(f'{increase_month} + increase {rev_increase}')
+
                #compare values
                 
             #determine greatest decrease
@@ -63,8 +71,7 @@ with open(csvpath) as csvfile:
     #finish average change calculation 
     avg_change = sum_change/month_count
 
-    #print analysis results
-            
+    #print analysis results      
     print(f"Financial Analysis")
     print(f"______________________________________")
     print(f"Total Months: {month_count} ")
