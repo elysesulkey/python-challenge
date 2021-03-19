@@ -21,8 +21,6 @@ with open(csvpath) as csvfile:
     rev_total = float(row[1])
     #greatest_increase = ???
     #greatest_decrease = ???
-    #month_change = []
-    #rev_change = []
 
     #loop through rows
     for row in csvreader:
@@ -49,10 +47,12 @@ with open(csvpath) as csvfile:
             previous_rev = rev
 
             #determine greatest increase
-            #if.....
+            if rev_change >= 0:
+                print(f'increase {rev_change}')
 
             #determine greatest decrease
-            #if ....
+            if rev_change <= 0:
+                print(f'decrease {rev_change}')
 
     #finish average change calculation 
     avg_change = sum_change/month_count
