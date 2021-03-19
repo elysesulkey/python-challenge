@@ -56,17 +56,21 @@ with open(csvpath) as csvfile:
 
     #print analysis results
     analysis = (
-        f"Financial Analysis\n"
+        f"Election Results\n"
         f"______________________________________\n"
-        f"Total Months: {month_count}\n"
-        f"Total: ${rev_total:,.2f}\n"
-        f"Average Change: ${avg_change:,.2f}\n"
-        f"Greatest Increase in Profits: {increase_month} (${increase_value:,.2f})\n"
-        f"Greatest Decrease in Profits: {decrease_month} (${decrease_value:,.2f})\n")
+        f"Total Votes: {month_count}\n"
+        f"______________________________________\n"
+        f"Khan: {rev_total:,.2f}\n"
+        f"Correy: {avg_change:,.2f}\n"
+        f"Li: {increase_month}\n"
+        f"O'Tooley: {decrease_month}\n"
+        f"______________________________________\n"
+        f"Winner: "
+        f"______________________________________\n")
     print(analysis)
 
     #output to file
-    output_path = os.path.join("Analysis","PyBank_analysis.txt")
+    output_path = os.path.join("Analysis","PyPoll_analysis.txt")
     with open(output_path, "w") as txtfile:
         
         txtfile.write(analysis)
