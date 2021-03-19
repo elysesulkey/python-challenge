@@ -10,49 +10,27 @@ with open(csvpath) as csvfile:
     csv_header = next(csvreader)
 
     #create calculation variables
-    row = next(csvreader)
-    month_count = 1
-    rev = float(row[1])
-    rev_total = 0
-    rev_change = 0
-    previous_rev = rev
-    sum_change = 0
-    rev_total = float(row[1])
-    increase_value = rev
-    decrease_value = rev
+
 
     #loop through rows
     for row in csvreader:
 
-        #loop through month & increase month count
+        #loop through voter ID & increase vote count
         if row[0]:
-            month_count += 1
+            
 
-        #loop through profit/loss   
-        if row[1]:
+        #loop through candidates 
+        if row[2]:
 
-            #add to profit/loss sum for total 
-            rev = float(row[1])
-            rev_total = rev_total + rev
-
-            #calculate change in profit/loss 
-            rev_change = rev - previous_rev
-            sum_change = sum_change + rev_change
-            previous_rev = rev
-
-            #determine greatest increase
+        #list candidates (unique values?)
+        #count votes each candidate received
+        #percent vote each candidat received
+            #candidate vote count / total vote count * 100
+        #winner of election based on pop.vote (largest number)
             if rev_change > increase_value:
 
                 increase_month = row[0]
                 increase_value = rev_change
-               
-            #determine greatest decrease
-            if rev_change < decrease_value:
-                decrease_month = row[0]
-                decrease_value = rev_change
-
-    #finish average change calculation 
-    avg_change = sum_change/month_count
 
     #print analysis results
     analysis = (
