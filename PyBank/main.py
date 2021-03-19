@@ -49,14 +49,16 @@ with open(csvpath) as csvfile:
             #determine greatest increase
             if rev_change >= 0:
                 rev_increase = rev_change
-                print(f'increase {rev_increase}')
-               #find increases, compare
+                increase_month = row[0]
+                print(f'{increase_month} + increase {rev_increase}')
+               #compare values
                 
             #determine greatest decrease
             if rev_change <= 0:
                 rev_decrease = rev_change
-                print(f'decrease {rev_decrease}')
-                #find decreases, compare
+                decrease_month = row[0]
+                print(f'{row[0]} + decrease {rev_decrease}')
+                #compare values
 
     #finish average change calculation 
     avg_change = sum_change/month_count
