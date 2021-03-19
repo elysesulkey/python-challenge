@@ -63,5 +63,7 @@ with open(csvpath) as csvfile:
     print(f"Greatest Increase in Profits: {increase_month} + ${increase_value:,.2f}")
     print(f"Greatest Decrease in Profits: {decrease_month} + ${decrease_value:,.2f}")
 
-    #output to terminal
     #output to file
+    output_path = os.path.join("Analysis","PyBank_analysis.csv")
+    with open(output_path, "w", newline="") as csvfile:
+        csvwriter = csv.writer(csvfile)
