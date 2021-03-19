@@ -66,8 +66,7 @@ with open(csvpath) as csvfile:
     print(analysis)
 
     #output to file
-    output_path = os.path.join("Analysis","PyBank_analysis.csv")
-    with open(output_path, "w") as csvfile:
-        writer = csv.writer(csvfile)
-
-        writer.writerow(f"analysis")
+    output_path = os.path.join("Analysis","PyBank_analysis.txt")
+    with open(output_path, "w") as txtfile:
+        
+        txtfile.write(analysis)
