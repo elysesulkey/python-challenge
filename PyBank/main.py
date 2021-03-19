@@ -60,10 +60,14 @@ with open(csvpath) as csvfile:
     print(f"Total Months: {month_count} ")
     print(f"Total: ${rev_total:,.2f}")
     print(f"Average Change: ${avg_change:,.2f}")
-    print(f"Greatest Increase in Profits: {increase_month} + ${increase_value:,.2f}")
-    print(f"Greatest Decrease in Profits: {decrease_month} + ${decrease_value:,.2f}")
+    print(f"Greatest Increase in Profits: {increase_month} (${increase_value:,.2f})")
+    print(f"Greatest Decrease in Profits: {decrease_month} (${decrease_value:,.2f})")
 
     #output to file
     output_path = os.path.join("Analysis","PyBank_analysis.csv")
     with open(output_path, "w", newline="") as csvfile:
         csvwriter = csv.writer(csvfile)
+        csvwriter.write((f"Financial Analysis"), (f"______________________________________")
+   ,(f"Total Months: {month_count} "), (f"Total: ${rev_total:,.2f}"), (f"Average Change: ${avg_change:,.2f}")
+ , (f"Greatest Increase in Profits: {increase_month} (${increase_value:,.2f})")
+,(f"Greatest Decrease in Profits: {decrease_month} (${decrease_value:,.2f})"))
