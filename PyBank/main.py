@@ -7,8 +7,8 @@ csvpath = os.path.join("Resources", "budget_data.csv")
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
-    csv_header = next(csvreader)
 
+    row = next(csvreader)
     #create calculation variables
 
     row = next(csvreader)
@@ -18,9 +18,9 @@ with open(csvpath) as csvfile:
     rev_change = 0
     previous_rev = rev
     sum_change = 0
+    rev_total = float(row[1])
     #greatest_increase = ???
     #greatest_decrease = ???
-    #previous_rev = 0
     #month_change = []
     #rev_change = []
 
@@ -45,14 +45,12 @@ with open(csvpath) as csvfile:
             rev_change = rev - previous_rev
 
             sum_change = sum_change + rev_change
+            
+            previous_rev = rev
 
-            print(f'sum change{sum_change}')
+    avg_change = sum_change/month_count
 
-            avg_change = sum_change/month_count
-
-
-                    #current month - previous month (between each month)
-                    #sum of changes / number of changes (86 months?)
+    print(f'sum {avg_change}')
 
                     #determine greatest increase
                     #determine greatest decrease
