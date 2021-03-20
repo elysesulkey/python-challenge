@@ -74,4 +74,6 @@ output_path = os.path.join("Analysis","PyPoll_analysis.txt")
 with open(output_path, "w") as txtfile:
         
     txtfile.write(analysis)
+    for count in range(len(candidates)):
+        txtfile.write(f"{candidates[count]}: {percent_list[count]:.2%} ({candidate_votes[count]})")
     txtfile.write(analysis2)
