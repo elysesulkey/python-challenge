@@ -11,21 +11,38 @@ with open(csvpath) as csvfile:
 
     #create calculation variables
     vote_count = 0
+    candidates = []
+    candidate_votes = []
 
     #loop through rows
     for row in csvreader:
+        
+        #increase vote count
+        vote_count += 1
 
-        #loop through voter ID & increase vote count
-        if row[0]:
-            vote_count += 1
-       
-        #loop through candidates 
-        #if row[2]:
+        #record candidate names
+        name = row[2]
+
+        #add candidates to candidate list + count votes
+        if name in candidates:
+            name_index = candidates.index(name)
+            candidate_votes[name_index] = candidate_votes[name_index] + 1
+            
+        else:
+            candidates.append(name)
+            candidate_votes.append(1)
+
+        print(f"{candidates} + {candidate_votes})
+    #if row[0]:
+
+            
+
+
 
         #list candidates (unique values?)
         #count votes each candidate received
         #percent vote each candidat received
-            #candidate vote count / total vote count * 100
+            #candidate vote count / vote_count * 100
         #winner of election based on pop.vote (largest number)
             #if rev_change > increase_value:
 
