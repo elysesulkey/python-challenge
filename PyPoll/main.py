@@ -53,19 +53,25 @@ with open(csvpath) as csvfile:
 
 #print analysis results
 
-print(f"Election Results\n")
-print(f"________________________\n")
-print(f"Total Votes: {vote_count}\n")
-print(f"______________________________________\n")
+analysis =(
+    f"Election Results\n"
+    f"________________________\n"
+    f"Total Votes: {vote_count}\n"
+    f"______________________________________\n")
+print(analysis)
+
 for count in range(len(candidates)):
     print(f"{candidates[count]}: {percent_list[count]:.2%} ({candidate_votes[count]})")
-print(f"______________________________________\n")
-print(f"Winner: {winner}")
-print(f"______________________________________\n")
-#print(analysis)
+
+analysis2 =(
+    f"______________________________________\n"
+    f"Winner: {winner}\n"
+    f"______________________________________\n")
+print(analysis2)
 
 #output to file
-#output_path = os.path.join("Analysis","PyPoll_analysis.txt")
-#with open(output_path, "w") as txtfile:
+output_path = os.path.join("Analysis","PyPoll_analysis.txt")
+with open(output_path, "w") as txtfile:
         
-    #txtfile.write(analysis)
+    txtfile.write(analysis)
+    txtfile.write(analysis2)
