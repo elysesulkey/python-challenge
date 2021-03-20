@@ -13,6 +13,7 @@ with open(csvpath) as csvfile:
     vote_count = 0
     candidates = []
     candidate_votes = []
+    percent_list = []
 
     #loop through rows
     for row in csvreader:
@@ -32,7 +33,8 @@ with open(csvpath) as csvfile:
             candidates.append(name)
             candidate_votes.append(1)
 
-        print(f"{candidates} + {candidate_votes})
+    for count in range(len(candidates)):
+        print(f"{candidates[count]} + {candidate_votes[count]}")
     #if row[0]:
 
             
