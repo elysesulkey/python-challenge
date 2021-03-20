@@ -39,16 +39,20 @@ with open(csvpath) as csvfile:
         candidate_percent = candidate_votes[count]/vote_count
         percent_list.append(candidate_percent)
 
+        #set variables for final calculation
         largest_vote = candidate_votes[0]
+        winner_name = 0
 
         #winner of election based on pop.vote
         if candidate_votes[count] > largest_vote:
             largest_vote = candidate_votes[count]
+            winner_name = count
+        winner = candidates[winner_name]
 
       
 
 #print analysis results
-print(largest_vote)
+
 print(f"Election Results\n")
 print(f"________________________\n")
 print(f"Total Votes: {vote_count}\n")
@@ -56,7 +60,7 @@ print(f"______________________________________\n")
 for count in range(len(candidates)):
     print(f"{candidates[count]}: {percent_list[count]:.2%} ({candidate_votes[count]})")
 print(f"______________________________________\n")
-print(f"Winner: ")
+print(f"Winner: {winner}")
 print(f"______________________________________\n")
 #print(analysis)
 
