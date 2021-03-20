@@ -26,23 +26,13 @@ with open(csvpath) as csvfile:
 
         #add candidates to candidate list + count votes
         if name in candidates:
-            name_index = candidates.index(name)
-            candidate_votes[name_index] = candidate_votes[name_index] + 1
+            name = candidates.index(name)
+            candidate_votes[name] = candidate_votes[name] + 1
             
         else:
             candidates.append(name)
             candidate_votes.append(1)
 
-    for count in range(len(candidates)):
-        print(f"{candidates[count]} + {candidate_votes[count]}")
-    #if row[0]:
-
-            
-
-
-
-        #list candidates (unique values?)
-        #count votes each candidate received
         #percent vote each candidat received
             #candidate vote count / vote_count * 100
         #winner of election based on pop.vote (largest number)
@@ -51,23 +41,23 @@ with open(csvpath) as csvfile:
                 #increase_month = row[0]
                 #increase_value = rev_change
 
-    #print analysis results
-    analysis = (
-        f"Election Results\n"
-        f"______________________________________\n"
-        f"Total Votes: {vote_count}\n"
-        f"______________________________________\n"
-        #f"Khan: {rev_total:,.2f}\n"
-        #f"Correy: {avg_change:,.2f}\n"
-        #f"Li: {increase_month}\n"
-        #f"O'Tooley: {decrease_month}\n"
-        f"______________________________________\n"
-        f"Winner: "
-        f"______________________________________\n")
-    print(analysis)
+#print analysis results
 
-    #output to file
-    output_path = os.path.join("Analysis","PyPoll_analysis.txt")
-    with open(output_path, "w") as txtfile:
+for count in range(len(candidates)):
+    print(f"{candidates[count]}: {candidate_votes[count]}")
+
+analysis = (
+f"Election Results\n"
+f"______________________________________\n"
+f"Total Votes: {vote_count}\n"
+f"______________________________________\n"
+f"______________________________________\n"
+f"Winner: "
+f"______________________________________\n")
+print(analysis)
+
+#output to file
+output_path = os.path.join("Analysis","PyPoll_analysis.txt")
+with open(output_path, "w") as txtfile:
         
-        txtfile.write(analysis)
+    txtfile.write(analysis)
