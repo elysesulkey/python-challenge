@@ -33,31 +33,30 @@ with open(csvpath) as csvfile:
             candidates.append(name)
             candidate_votes.append(1)
 
-        #percent vote each candidat received
-            #candidate vote count / vote_count * 100
-        #winner of election based on pop.vote (largest number)
-            #if rev_change > increase_value:
+    #find candidate percentage of votes
+    for count in range(len(candidates)):
 
-                #increase_month = row[0]
-                #increase_value = rev_change
+        candidate_percent = candidate_votes[count]/vote_count
+        percent_list.append(candidate_percent)
+
+        #winner of election based on pop.vote (largest number)
+      
 
 #print analysis results
 
+print(f"Election Results\n")
+print(f"________________________\n")
+print(f"Total Votes: {vote_count}\n")
+print(f"______________________________________\n")
 for count in range(len(candidates)):
-    print(f"{candidates[count]}: {candidate_votes[count]}")
-
-analysis = (
-f"Election Results\n"
-f"______________________________________\n"
-f"Total Votes: {vote_count}\n"
-f"______________________________________\n"
-f"______________________________________\n"
-f"Winner: "
-f"______________________________________\n")
-print(analysis)
+    print(f"{candidates[count]}: {percent_list[count]:.2%} ({candidate_votes[count]})")
+print(f"______________________________________\n")
+print(f"Winner: ")
+print(f"______________________________________\n")
+#print(analysis)
 
 #output to file
-output_path = os.path.join("Analysis","PyPoll_analysis.txt")
-with open(output_path, "w") as txtfile:
+#output_path = os.path.join("Analysis","PyPoll_analysis.txt")
+#with open(output_path, "w") as txtfile:
         
-    txtfile.write(analysis)
+    #txtfile.write(analysis)
