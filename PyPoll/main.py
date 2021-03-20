@@ -61,7 +61,7 @@ analysis =(
 print(analysis)
 
 for count in range(len(candidates)):
-    print(f"{candidates[count]}: {percent_list[count]:.2%} ({candidate_votes[count]})")
+    print(f"{candidates[count]}: {percent_list[count]:.2%} ({candidate_votes[count]})\n")
 
 analysis2 =(
     f"______________________________________\n"
@@ -75,5 +75,5 @@ with open(output_path, "w") as txtfile:
         
     txtfile.write(analysis)
     for count in range(len(candidates)):
-        txtfile.write(f"{candidates[count]}: {percent_list[count]:.2%} ({candidate_votes[count]})")
+        txtfile.write(f"{candidates[count]}: {percent_list[count]:.2%} ({candidate_votes[count]})\n")
     txtfile.write(analysis2)
